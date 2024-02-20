@@ -1,0 +1,16 @@
+[user]
+	email = prajjwalt9@gmail.com
+	name = MISSIC17
+[alias]
+	adog = log --all --decorate --oneline --graph
+	adog10 = log -n 10 --decorate --oneline --graph
+	graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+
+#[credential "https://github.com"]
+#        helper = github -b 'cache --timeout=86400'
+[init]
+	defaultBranch = main
+[credential]
+	helper = cache
+[core]
+	editor = vim

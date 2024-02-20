@@ -1,0 +1,1 @@
+# Arch with Hyprland dotfiles
