@@ -1,7 +1,12 @@
+* {
+    transition:0.2s;
+}
+
 window {
+    font-family: "FiraCode Nerd Font Mono";
     margin: 0px;
     border: 5px solid #1e1e2e;
-    background-color: #cdd6f4;
+    background-color:transparent;
     border-radius: 15px;
 }
 
@@ -10,11 +15,12 @@ window {
     margin: 4px;
     padding-left: 20px;
     border: none;
-    color: #cdd6f4;
+    color: #000;
     font-weight: bold;
-    background-color: #1e1e2e;
-   	outline: none;
-    border-radius: 15px;
+   /* background-color: #1e1e2e;*/
+    background: linear-gradient(90deg, #cba6f7 0%, #94e2d5 100%);
+    outline: none;
+    border-radius: 16px;
     margin: 10px;
     margin-bottom: 2px;
 }
