@@ -13,6 +13,8 @@ alias sr='wf-recorder -g "$(slurp)"'
 alias ll="ls -a"
 alias pp="git pull && git push"
 alias keys="xev"
+alias prettyjson='python -m json.tool'
+
 # PS1='[\u@\h \W]\$ '
 
 
