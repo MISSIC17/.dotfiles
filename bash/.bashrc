@@ -12,6 +12,7 @@ alias editway='vim ~/.config/waybar/config.jsonc'
 alias sr='wf-recorder -g "$(slurp)"'
 alias ll="ls -a"
 alias pp="git pull && git push"
+alias gst="git status"
 alias keys="xev"
 alias prettyjson='python -m json.tool'
 
