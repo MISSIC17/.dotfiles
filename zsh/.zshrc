@@ -89,7 +89,7 @@ PATH=~/.console-ninja/.bin:$PATH
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git web-search tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -131,10 +131,17 @@ alias prettyjson='python -m json.tool'
 
 # Functions
 #`
-#`
 #`@brings argument workspace to current monitor
+#`
 bwc() {
 	hyprctl dispatch moveworkspacetomonitor "$1" current
+}
+#`
+# @reloads kitty terminal
+#`
+rk() {
+  # Assuming you've already edited the kitty.conf file manually
+  kill -SIGUSR1 $(pgrep kitty)
 }
 
 eval "$(starship init zsh)"
