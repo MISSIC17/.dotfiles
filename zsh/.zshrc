@@ -8,31 +8,8 @@ HISTSIZE=1000
 SAVEHIST=1000
 ZSH_THEME="agnoster"
 
-# aliases
-
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias edith='nvim ~/.config/hypr/hyprland.conf'
-alias editway='nvim ~/.config/waybar/config.jsonc'
-alias editb='nvim ~/.bashrc'
-alias editz='nvim ~/.zshrc'
-alias sr='wf-recorder -g "$(slurp)"'
-alias ll="ls -a"
-alias pp="git pull && git push"
-alias gst="git status"
-alias keys="xev"
-alias prettyjson='python -m json.tool'
-
-
 autoload -Uz compinit
 
-# functions
-#`
-#`
-#`@brings argument workspace to current monitor
-bwc() {
-	hyprctl dispatch moveworkspacetomonitor "$1" current
-}
 PS1='\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;31m\]\$\[\033[0m\] '
 
 # pnpm
@@ -46,12 +23,11 @@ compinit
 
 
 PATH=~/.console-ninja/.bin:$PATH
-eval "$(starship init zsh)"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -139,6 +115,26 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Aliases
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias edith='nvim ~/.config/hypr/hyprland.conf'
+alias editway='nvim ~/.config/waybar/config.jsonc'
+alias editb='nvim ~/.bashrc'
+alias editz='nvim ~/.zshrc'
+alias sr='wf-recorder -g "$(slurp)"'
+alias ll="ls -a"
+alias pp="git pull && git push"
+alias gst="git status"
+alias keys="xev"
+alias prettyjson='python -m json.tool'
+
+# Functions
+#`
+#`
+#`@brings argument workspace to current monitor
+bwc() {
+	hyprctl dispatch moveworkspacetomonitor "$1" current
+}
+
+eval "$(starship init zsh)"
