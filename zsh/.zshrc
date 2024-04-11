@@ -21,7 +21,7 @@ esac
 compinit
 # End of lines added by compinstall
 
-
+export EDITOR=nvim
 PATH=~/.console-ninja/.bin:$PATH
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -89,7 +89,7 @@ PATH=~/.console-ninja/.bin:$PATH
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git web-search tmux)
+plugins=(git web-search tmux tmuxinator vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -143,5 +143,12 @@ rk() {
   # Assuming you've already edited the kitty.conf file manually
   kill -SIGUSR1 $(pgrep kitty)
 }
+#`
+#@single command for mkdir and cd
+#`
 
+mkcd() {
+    mkdir -p "${1}"
+    cd "${1}"
+}
 eval "$(starship init zsh)"
