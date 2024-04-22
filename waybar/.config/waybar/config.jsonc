@@ -138,9 +138,10 @@
     "spacing": 10
   },
   "clock": {
-    "format": "{:%I:%M %p}",
+    "format": "{:%F %T}",
     "tooltip": true,
-    "tooltip-format": "{: %A, %B %e %Y}"
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "interval": 1
   },
   "backlight": {
     "device": "intel_backlight",
@@ -216,5 +217,5 @@
       "󰂂",
       "󰁹"
     ]
-  },
+  }
 }

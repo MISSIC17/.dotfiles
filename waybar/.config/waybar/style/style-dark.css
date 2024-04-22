@@ -2,13 +2,13 @@
     border: none;
     border-radius: 0;
     font-family: "JetBrainsMono Nerd Font";
-    font-weight: bold;
+    /* font-weight: medium; */
     font-size: 16px;
     min-height: 0;
 }
 
 window#waybar {
-    background: rgba(21, 18, 27, 0);
+    background: rgba(21, 18, 27, 0.87);
     color: #cdd6f4;
 }
 
@@ -76,7 +76,7 @@ tooltip label{
     opacity: 0.8;
     padding: 0px 10px;
     margin: 3px 0px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     border: 0px;
 }
 
