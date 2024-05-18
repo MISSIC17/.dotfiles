@@ -82,3 +82,9 @@
     frame_color = "#900000"
     timeout = 0
 
+[shortcuts]
+    close=ctrl+esc 
+
+    history=ctrl+mod4+h 
+
+    context=ctrl+mod4+c
