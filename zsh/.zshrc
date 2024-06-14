@@ -89,7 +89,7 @@ PATH=~/.console-ninja/.bin:$PATH
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git web-search tmux tmuxinator vi-mode z)
+plugins=(git web-search tmux tmuxinator vi-mode z alias-finder)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -122,12 +122,18 @@ alias edith='nvim ~/.config/hypr/hyprland.conf'
 alias editway='nvim ~/.config/waybar/config.jsonc'
 alias editb='nvim ~/.bashrc'
 alias editz='nvim ~/.zshrc'
+alias editvim='nvim ~/.config/nvim/'
 alias sr='wf-recorder -g "$(slurp)"'
 alias ll="ls -a"
 alias pp="git pull && git push"
 alias gst="git status"
 alias keys="xev"
 alias prettyjson='python -m json.tool'
+alias dev='pnpm dev'
+alias build='pnpm build'
+alias gs='git status'
+alias gch='git checkout'
+alias sz='source ~/.zshrc'
 
 # Functions
 #`
