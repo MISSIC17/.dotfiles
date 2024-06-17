@@ -133,3 +133,25 @@ tooltip label{
     color: #a6e3a1;
     border-left: 0px;
 }
+#battery.warning{
+    color: #f7c979;
+}
+#battery.critical{
+    color: #e92d4d;
+    animation : blink 1s linear infinite;
+}
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+window#waybar.battery-critical{
+    background: #1e1e2e;
+    color: #e92d4d;
+}
