@@ -151,7 +151,7 @@ tooltip label{
         opacity: 0;
     }
 }
-window#waybar.battery-critical{
+window#waybar.battery-critical:not(.charging){
     background: #1e1e2e;
     color: #e92d4d;
 }

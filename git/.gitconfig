@@ -18,3 +18,9 @@
 	helper = !/usr/bin/gh auth git-credential
 [hub]
 	protocol = https
+[rerere]
+	enabled = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate

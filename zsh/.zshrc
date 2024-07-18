@@ -134,6 +134,7 @@ alias build='pnpm build'
 alias gs='git status'
 alias gch='git checkout'
 alias sz='source ~/.zshrc'
+alias p='pnpm'
 
 # Functions
 #`
@@ -158,3 +159,6 @@ mkcd() {
     cd "${1}"
 }
 eval "$(starship init zsh)"
+export MANPATH=$MANPATH:/usr/local/texlive/2024/texmf-dist/doc/man
+export INFOPATH=$INFOPATH:/usr/local/texlive/2024/texmf-dist/doc/info
+export PATH=$PATH:/usr/local/texlive/2024/bin/x86_64-linux
