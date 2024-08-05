@@ -1,12 +1,5 @@
 return {
   "folke/tokyonight.nvim",
   lazy = true,
-  opts = { style = "moon" },
-
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "gruvbox",
-    },
-  },
+  opts = { style = "night", transparent = false },
 }

@@ -15,7 +15,7 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 -- File explorer with NvimTree
 keymap.set("n", "<Leader>f", ":NvimTreeFindFile<Return>", opts)
 keymap.set("n", "<Leader>t", ":NvimTreeToggle<Return>", opts)
-keymap.set("t", "jk", [[<C-\><C-n>]])
+-- keymap.set("t", "jk", [[<C-\><C-n>]])
 
 -- Save file and quit
 keymap.set("n", "<Leader>w", ":update<Return>", opts)

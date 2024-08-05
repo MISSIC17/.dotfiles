@@ -163,3 +163,6 @@ export MANPATH=$MANPATH:/usr/local/texlive/2024/texmf-dist/doc/man
 export INFOPATH=$INFOPATH:/usr/local/texlive/2024/texmf-dist/doc/info
 export PATH=$PATH:/usr/local/texlive/2024/bin/x86_64-linux
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
+# Created by `pipx` on 2024-07-27 12:24:29
+export PATH="$PATH:/home/missic/.local/bin"

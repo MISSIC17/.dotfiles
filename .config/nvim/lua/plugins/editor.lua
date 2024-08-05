@@ -144,4 +144,24 @@ return {
       require("telescope").load_extension("file_browser")
     end,
   },
+  {
+    "numToStr/Comment.nvim",
+    opts = {
+      -- add any options here
+    },
+  },
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+  },
+  {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("better_escape").setup()
+    end,
+    opts = {
+      mappings = {
+        ["jk"] = true,
+      },
+    },
+  },
 }
