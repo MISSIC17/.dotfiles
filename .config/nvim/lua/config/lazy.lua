@@ -21,33 +21,34 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.coding.copilot" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     { import = "lazyvim.plugins.extras.lang.svelte" },
+    { import = "lazyvim.plugins.extras.editor.dial" },
     { import = "plugins" },
     {
 
-  "JoosepAlviste/nvim-ts-context-commentstring",
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = { "vim", "lua" },
-        highlight = {
-          enable = true,
-        },
-      })
-    end,
-  },
-  {
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup({
-        pre_hook = function()
-          return vim.bo.commentstring
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        config = function()
+          require("nvim-treesitter.configs").setup({
+            ensure_installed = { "vim", "lua" },
+            highlight = {
+              enable = true,
+            },
+          })
         end,
-      })
-    end,
-  },
-    }
+      },
+      {
+        "numToStr/Comment.nvim",
+        config = function()
+          require("Comment").setup({
+            pre_hook = function()
+              return vim.bo.commentstring
+            end,
+          })
+        end,
+      },
+    },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
