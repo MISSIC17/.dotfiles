@@ -3,49 +3,49 @@ return {
     "nvim-lualine/lualine.nvim",
     enabled = true,
   },
-  {
-    "folke/noice.nvim",
-    opts = function(_, opts)
-      table.insert(opts.routes, {
-        filter = {
-          event = "notify",
-          find = "No information available",
-        },
-        opts = { skip = true },
-      })
-      local focused = true
-      vim.api.nvim_create_autocmd("FocusGained", {
-        callback = function()
-          focused = true
-        end,
-      })
-      vim.api.nvim_create_autocmd("FocusLost", {
-        callback = function()
-          focused = false
-        end,
-      })
-      table.insert(opts.routes, 1, {
-        filter = {
-          cond = function()
-            return not focused
-          end,
-        },
-        view = "notify_send",
-        opts = { stop = false },
-      })
-
-      opts.commands = {
-        all = {
-          -- options for the message history that you get with `:Noice`
-          view = "split",
-          opts = { enter = true, format = "details" },
-          filter = {},
-        },
-      }
-
-      opts.presets.lsp_doc_border = true
-    end,
-  },
+  -- {
+  --   "folke/noice.nvim",
+  --   opts = function(_, opts)
+  --     table.insert(opts.routes, {
+  --       filter = {
+  --         event = "notify",
+  --         find = "No information available",
+  --       },
+  --       opts = { skip = true },
+  --     })
+  --     local focused = true
+  --     vim.api.nvim_create_autocmd("FocusGained", {
+  --       callback = function()
+  --         focused = true
+  --       end,
+  --     })
+  --     vim.api.nvim_create_autocmd("FocusLost", {
+  --       callback = function()
+  --         focused = false
+  --       end,
+  --     })
+  --     table.insert(opts.routes, 1, {
+  --       filter = {
+  --         cond = function()
+  --           return not focused
+  --         end,
+  --       },
+  --       view = "notify_send",
+  --       opts = { stop = false },
+  --     })
+  --
+  --     opts.commands = {
+  --       all = {
+  --         -- options for the message history that you get with `:Noice`
+  --         view = "split",
+  --         opts = { enter = true, format = "details" },
+  --         filter = {},
+  --       },
+  --     }
+  --
+  --     opts.presets.lsp_doc_border = true
+  --   end,
+  -- },
 
   {
     "romgrk/barbar.nvim",
@@ -298,6 +298,29 @@ return {
       end
 
       return opts
+    end,
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1001, -- this plugin needs to run before anything else
+    opts = {
+      rocks = { "magick" },
+    },
+  },
+  {
+    "3rd/image.nvim",
+    dependencies = { "luarocks.nvim" },
+    config = function()
+      -- ...
     end,
   },
 }
