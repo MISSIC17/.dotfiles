@@ -144,15 +144,15 @@ return {
       require("telescope").load_extension("file_browser")
     end,
   },
-  {
-    "numToStr/Comment.nvim",
-    opts = {
-      -- add any options here
-    },
-  },
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-  },
+  -- {
+  --   "numToStr/Comment.nvim",
+  --   opts = {
+  --     -- add any options here
+  --   },
+  -- },
+  -- {
+  --   "JoosepAlviste/nvim-ts-context-commentstring",
+  -- },
   {
     "max397574/better-escape.nvim",
     config = function()
@@ -164,16 +164,16 @@ return {
       },
     },
   },
-  {
-    "toppair/peek.nvim",
-    event = { "VeryLazy" },
-    build = "deno task --quiet build:fast",
-    config = function()
-      require("peek").setup()
-      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
-    end,
-  },
+  -- {
+  --   "toppair/peek.nvim",
+  --   event = { "VeryLazy" },
+  --   build = "deno task --quiet build:fast",
+  --   config = function()
+  --     require("peek").setup()
+  --     vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+  --     vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+  --   end,
+  -- },
 
   {
     "chrisgrieser/nvim-spider",
@@ -197,5 +197,12 @@ return {
     --     require("nvim_rocks").ensure_installed("luautf8")
     --   end,
     -- },
+  },
+
+  -- tailwind-tools.lua
+  {
+    "luckasRanarison/tailwind-tools.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = {}, -- your configuration
   },
 }

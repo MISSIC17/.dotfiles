@@ -1,52 +1,39 @@
 return {
+  -- for the bottom line
   {
     "nvim-lualine/lualine.nvim",
     enabled = true,
   },
-  -- {
-  --   "folke/noice.nvim",
-  --   opts = function(_, opts)
-  --     table.insert(opts.routes, {
-  --       filter = {
-  --         event = "notify",
-  --         find = "No information available",
-  --       },
-  --       opts = { skip = true },
-  --     })
-  --     local focused = true
-  --     vim.api.nvim_create_autocmd("FocusGained", {
-  --       callback = function()
-  --         focused = true
-  --       end,
-  --     })
-  --     vim.api.nvim_create_autocmd("FocusLost", {
-  --       callback = function()
-  --         focused = false
-  --       end,
-  --     })
-  --     table.insert(opts.routes, 1, {
-  --       filter = {
-  --         cond = function()
-  --           return not focused
-  --         end,
-  --       },
-  --       view = "notify_send",
-  --       opts = { stop = false },
-  --     })
-  --
-  --     opts.commands = {
-  --       all = {
-  --         -- options for the message history that you get with `:Noice`
-  --         view = "split",
-  --         opts = { enter = true, format = "details" },
-  --         filter = {},
-  --       },
-  --     }
-  --
-  --     opts.presets.lsp_doc_border = true
-  --   end,
-  -- },
+  --  for the Notifications UI
+  {
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup({
+        lsp = {
+          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+          },
+        },
+        -- you can enable a preset for easier configuration
+        presets = {
+          bottom_search = true, -- use a classic bottom cmdline for search
+          command_palette = true, -- position the cmdline and popupmenu together
+          long_message_to_split = true, -- long messages will be sent to a split
+          inc_rename = false, -- enables an input dialog for inc-rename.nvim
+          lsp_doc_border = false, -- add a border to hover docs and signature help
+        },
+      })
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+  },
 
+  --  for the tabs
   {
     "romgrk/barbar.nvim",
     dependencies = {
@@ -66,66 +53,66 @@ return {
     },
     version = "^1.0.0", -- optional: only update when a new 1.x version is released
   },
-  {
-    "rcarriga/nvim-notify",
-    opts = {
-      timeout = 5000,
-      background_colour = "#000000",
-      render = "wrapped-compact",
-    },
-  },
+  -- {
+  --   "rcarriga/nvim-notify",
+  --   opts = {
+  --     timeout = 5000,
+  --     background_colour = "#000000",
+  --     render = "wrapped-compact",
+  --   },
+  -- },
 
   -- buffer line
-  {
-    "akinsho/bufferline.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "kyazdani42/nvim-web-devicons",
-    },
-    opts = {
-      options = {
-
-        show_buffer_close_icons = true,
-        show_close_icon = true,
-        hover = {
-          enabled = true,
-          deplay = 200,
-          reveal = { "close" },
-        },
-        -- mode = "tabs",
-      },
-    },
-  },
+  -- {
+  --   "akinsho/bufferline.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = {
+  --     "kyazdani42/nvim-web-devicons",
+  --   },
+  --   opts = {
+  --     options = {
+  --
+  --       show_buffer_close_icons = true,
+  --       show_close_icon = true,
+  --       hover = {
+  --         enabled = true,
+  --         deplay = 200,
+  --         reveal = { "close" },
+  --       },
+  --       -- mode = "tabs",
+  --     },
+  --   },
+  -- },
 
   -- filename
-  {
-    "b0o/incline.nvim",
-    dependencies = {},
-    event = "BufReadPre",
-    priority = 1200,
-    config = function()
-      local helpers = require("incline.helpers")
-      require("incline").setup({
-        window = {
-          padding = 0,
-          margin = { horizontal = 0 },
-        },
-        render = function(props)
-          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-          local ft_icon, ft_color = require("nvim-web-devicons").get_icon_color(filename)
-          local modified = vim.bo[props.buf].modified
-          local buffer = {
-            ft_icon and { " ", ft_icon, " ", guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or "",
-            " ",
-            { filename, gui = modified and "bold,italic" or "bold" },
-            " ",
-            guibg = "#363944",
-          }
-          return buffer
-        end,
-      })
-    end,
-  },
+  -- {
+  --   "b0o/incline.nvim",
+  --   dependencies = {},
+  --   event = "BufReadPre",
+  --   priority = 1200,
+  --   config = function()
+  --     local helpers = require("incline.helpers")
+  --     require("incline").setup({
+  --       window = {
+  --         padding = 0,
+  --         margin = { horizontal = 0 },
+  --       },
+  --       render = function(props)
+  --         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+  --         local ft_icon, ft_color = require("nvim-web-devicons").get_icon_color(filename)
+  --         local modified = vim.bo[props.buf].modified
+  --         local buffer = {
+  --           ft_icon and { " ", ft_icon, " ", guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or "",
+  --           " ",
+  --           { filename, gui = modified and "bold,italic" or "bold" },
+  --           " ",
+  --           guibg = "#363944",
+  --         }
+  --         return buffer
+  --       end,
+  --     })
+  --   end,
+  -- },
   -- LazyGit integration with Telescope
   {
     "kdheepak/lazygit.nvim",
@@ -146,30 +133,30 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
-  {
-    "kristijanhusak/vim-dadbod-ui",
-    dependencies = {
-      { "tpope/vim-dadbod", lazy = true },
-      { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
-    },
-    cmd = {
-      "DBUI",
-      "DBUIToggle",
-      "DBUIAddConnection",
-      "DBUIFindBuffer",
-    },
-    init = function()
-      -- Your DBUI configuration
-      vim.g.db_ui_use_nerd_fonts = 1
-    end,
-    keys = {
-      {
-
-        "<leader>d",
-        "<cmd>NvimTreeClose<cr><cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>",
-      },
-    },
-  },
+  -- {
+  --   "kristijanhusak/vim-dadbod-ui",
+  --   dependencies = {
+  --     { "tpope/vim-dadbod", lazy = true },
+  --     { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
+  --   },
+  --   cmd = {
+  --     "DBUI",
+  --     "DBUIToggle",
+  --     "DBUIAddConnection",
+  --     "DBUIFindBuffer",
+  --   },
+  --   init = function()
+  --     -- Your DBUI configuration
+  --     vim.g.db_ui_use_nerd_fonts = 1
+  --   end,
+  --   keys = {
+  --     {
+  --
+  --       "<leader>d",
+  --       "<cmd>NvimTreeClose<cr><cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>",
+  --     },
+  --   },
+  -- },
   {
     "nvim-tree/nvim-tree.lua",
     enabled = false,
@@ -309,18 +296,18 @@ return {
       -- refer to the configuration section below
     },
   },
-  {
-    "vhyrro/luarocks.nvim",
-    priority = 1001, -- this plugin needs to run before anything else
-    opts = {
-      rocks = { "magick" },
-    },
-  },
-  {
-    "3rd/image.nvim",
-    dependencies = { "luarocks.nvim" },
-    config = function()
-      -- ...
-    end,
-  },
+  -- {
+  --   "vhyrro/luarocks.nvim",
+  --   priority = 1001, -- this plugin needs to run before anything else
+  --   opts = {
+  --     rocks = { "magick" },
+  --   },
+  -- },
+  -- {
+  --   "3rd/image.nvim",
+  --   dependencies = { "luarocks.nvim" },
+  --   config = function()
+  --     -- ...
+  --   end,
+  -- },
 }
