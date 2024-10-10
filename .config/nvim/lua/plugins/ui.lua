@@ -4,7 +4,7 @@ return {
     "nvim-lualine/lualine.nvim",
     enabled = true,
   },
-  --  for the Notifications UI
+  --   for the Notifications UI
   {
     "folke/noice.nvim",
     config = function()
@@ -227,18 +227,40 @@ return {
     enabled = true,
     opts = function()
       local logo = [[
-         ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
-         ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z    
-         ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z       
-         ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z         
-         ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║           
-         ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝           
+.+++++++++++xxx+xxx++;;;;;;;;++x++;::;xxx+++++;;;;;;:.
+.xxxxxxxxxxxxx++++;;+++++;+;++;;;+xxXXxx;........:..:.
+.xxxxxxxxxxxxx++++++;;x+++++++++++;+;::+;:;xxxx+:..::.
+.+++xxxxxx++xx+x+++++;+++++++++++++;+:;x+;;+;;+xx;&&&:
+.+x++xxxxxxxxxxxxx++++;+;++++++;++++xx+xx+;;;;;+x.....
+.xxxxxxx+xxxx++++;;;++++++;;;;;++++++x..;.;;;;;:......
+.xxxxxxxxx;;;;++++xxxxxxx+++;++;;;;;+xX.Xxxxxxxx;.....
+.xxxxxxx+;;++xxxx+;;;;;;;;xxxxxx++;;;;;+;;;;;;;;......
+.xxxxxx+;;+xx++++;;;::::;:....::+xx;;;;;;;;;;;;;xxxxx.
+.+xxx++;++x+;++++xx;:...........::xxxxx+x;:;;;;;;;;;;.
+.+xxx+;;+++;;+x++;+:.::...::::.....xx+++xx+;;;;;;;;++.
+.x+:+;;xx;;xxx+;;:::::::::::........+++++++xxx;;;+++;.
+.++++;xxx+xxxxxxxx+.........;&&&&&&;Xxx;;;;;+xxx;;;;+.
+.x++;++++xxxxxxx+xxX&&x...&&+........:x;;;++xxxx;;;;;.
+.+x+++xx+xxxxx;.......x&$$x..:;:....x;x+;;+++++x;:;:;.
+.x+;+xxx;+xxx;:;xxXx..xx..:.::;:.:xx+xx++;+;++xx;:.:;.
+.xxx++xx;;x+xx;:....:xXx..:X+:...x$$x:x;++;+;+xx:.;+;.
+.xxx;++++;+xxxxX$$$$+;xX:.:..;xxx;....x.:+++;+x+:;;;;.
+.x++;+;+x++xxx;......Xx...............x;:+x+++;:;;;;;.
+.x++xxx+x;+xxx+:::...:.+..$;..........:Xx+x;++:;;;;;;.
+.x++xx+x+;++xxx;::....:;...:............:;++;+;;;;;+;.
+.xxxx+++++;:.;x+::::::::..............xxxx;+;;;;;;;;;.
+.xxx+++xxx+xxxxx;::::;;;;+;;;;;:......xx+::++;;;;;;;;.
+.xx+++x+++++++x+;;:.:;+;;:::::.......:+;;;;;;;;;;;;;;.
+.+++xxx++++++;;++;;:.....::..........;x;++;;+;;;;;;;;.
+.+++xx+xxx+++++x++;+;:::::..:....:::.;x;;;;+;+;;;;;;;.
+.+xxx+x++:;+xxx+++xxx;:........:;:..;;xx+;;;;;;;;;;;;.
+.+x++x++xx+x+xx+;;;;+x+;++x++;+:.:+;;.:;xxxx;;;;;++;;.
     ]]
 
-      logo = string.rep("\n", 8) .. logo .. "\n\n"
+      logo = string.rep("\n", 3) .. logo .. "\n\n"
 
       local opts = {
-        theme = "hyper",
+        theme = "doom",
         hide = {
           -- this is taken care of by lualine
           -- enabling this messes up the actual laststatus setting after loading a file
@@ -246,6 +268,9 @@ return {
         },
         config = {
           header = vim.split(logo, "\n"),
+          -- week_header = {
+          --   enable = true,
+          -- },
         -- stylua: ignore
         center = {
           { action = 'lua LazyVim.pick()()',                           desc = " Find File",       icon = " ", key = "f" },

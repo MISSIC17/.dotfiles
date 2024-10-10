@@ -4,7 +4,11 @@ return {
     tag = "v0.9.1",
     opts = {
       ensure_installed = {
+
+        "bash",
+        "html",
         "javascript",
+        "jsdoc",
         "typescript",
         "css",
         "gitignore",
@@ -17,6 +21,13 @@ return {
         "lua",
         "markdown",
         "markdown_inline",
+        "python",
+        "query",
+        "regex",
+        "tsx",
+        "vim",
+        "yaml",
+        "tmux",
       },
       auto_install = true,
       query_linter = {
