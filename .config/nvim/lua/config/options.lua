@@ -33,5 +33,6 @@ vim.opt.splitkeep = "cursor"
 vim.g.lazyvim_python_lsp = "pyright"
 vim.opt.foldmethod = "manual"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
 -- Add asterisks in block comments
 vim.opt.formatoptions:append({ "r" })
