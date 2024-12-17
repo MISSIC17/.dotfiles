@@ -2,11 +2,11 @@
 [global]
     follow = keyboard
     width = (0, 1500)
-    height = 950
+    height = (0, 100)
     origin = bottom-right
     offset = 24x24
     scale = 0
-    notification_limit = 10
+    notification_limit = 5
     progress_bar = true
     progress_bar_height = 10
     progress_bar_frame_width = 1
@@ -15,7 +15,7 @@
     progress_bar_corner_radius = 0
     icon_corner_radius = 0
     indicate_hidden = yes
-    transparency = 15
+    transparency = 0
     separator_height = 2
     padding = 5
     horizontal_padding = 15
@@ -84,7 +84,6 @@
 
 [shortcuts]
     close=ctrl+esc 
-
+    close_all = esc
     history=ctrl+mod4+h 
-
     context=ctrl+mod4+c
