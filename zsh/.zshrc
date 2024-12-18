@@ -162,7 +162,7 @@ eval "$(starship init zsh)"
 export MANPATH=$MANPATH:/usr/local/texlive/2024/texmf-dist/doc/man
 export INFOPATH=$INFOPATH:/usr/local/texlive/2024/texmf-dist/doc/info
 export PATH=$PATH:/usr/local/texlive/2024/bin/x86_64-linux
-export STARSHIP_CONFIG=~/.config/starship/starship-pure.toml
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export DENO_INSTALL="/home/missic/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 # Created by `pipx` on 2024-07-27 12:24:29

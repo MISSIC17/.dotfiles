@@ -54,3 +54,8 @@ keymap.set("n", "<C-S-j>", "<C-w>-")
 keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)
+
+--spider
+keymap.set({ "n", "o", "x" }, "B", function()
+  require("spider").motion("b")
+end, { desc = "Delete previous subword using Spider.nvim" })
