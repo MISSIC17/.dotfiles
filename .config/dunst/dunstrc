@@ -1,7 +1,7 @@
 # My PC: 1440p at 15.6 inch
 [global]
     follow = keyboard
-    width = (0, 1500)
+    width = (0, 400)
     height = (0, 100)
     origin = bottom-right
     offset = 24x24
