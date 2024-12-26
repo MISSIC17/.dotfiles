@@ -16,3 +16,19 @@
 
 2024/12/09 (11:50:48) | ===> btop++ v.1.4.0
 2024/12/09 (11:50:48) | WARNING: Intel GPU: Failed to initialize PMU
+
+2024/12/20 (13:27:23) | ===> btop++ v.1.4.0
+2024/12/20 (13:27:23) | WARNING: Intel GPU: Failed to initialize PMU
+
+2024/12/20 (13:27:33) | ===> btop++ v.1.4.0
+2024/12/20 (13:27:33) | WARNING: Intel GPU: Failed to initialize PMU
+2024/12/20 (13:29:09) | ERROR: Stall in Runner thread, restarting!
+2024/12/20 (13:29:23) | WARNING: Error in Mem::collect() : std::future_error: No associated state
+2024/12/20 (13:29:25) | WARNING: Error in Mem::collect() : std::future_error: No associated state
+
+2024/12/20 (13:29:51) | ===> btop++ v.1.4.0
+2024/12/20 (13:29:51) | WARNING: Intel GPU: Failed to initialize PMU
+2024/12/20 (13:30:50) | WARNING: Failed to join _runner thread on exit!
+
+2024/12/26 (09:41:44) | ===> btop++ v.1.4.0
+2024/12/26 (09:41:44) | WARNING: Intel GPU: Failed to initialize PMU

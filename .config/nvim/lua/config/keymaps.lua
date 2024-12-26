@@ -36,7 +36,9 @@ keymap.set("n", "L", ":BufferLineCycleNext<CR>", opts)
 
 -- Split window
 keymap.set("n", "ss", ":split<Return>", opts)
-keymap.set("n", "sv", ":vsplit<Return>", opts)
+-- keymap.set("n", "sv", ":vsplit<Return>", opts)
+keymap.set("n", "<c-\\>", ":vsplit<Return>", opts) -- vertical split
+keymap.set("n", "<c-,>", ":split<Return>", opts) -- horizontal split
 
 -- Move window
 keymap.set("n", "sh", "<C-w>h")
