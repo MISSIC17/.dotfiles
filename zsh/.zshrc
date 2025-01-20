@@ -135,6 +135,7 @@ alias gs='git status'
 alias gch='git checkout'
 alias sz='source ~/.zshrc'
 alias p='pnpm'
+alias chalena='systemctl enable systemd-networkd.service'
 
 # Functions
 #`
