@@ -40,6 +40,23 @@ require("lazy").setup({
         end,
       },
       {
+        "hrsh7th/nvim-cmp",
+        dependencies = { "hrsh7th/cmp-nvim-lsp", "onsails/lspkind.nvim" },
+        config = function()
+          local cmp = require("cmp")
+          local lspkind = require("lspkind")
+
+          cmp.setup({
+            formatting = {
+              format = lspkind.cmp_format({
+                mode = "symbol_text",
+                menu = { buffer = "[BUF]", nvim_lsp = "[LSP]", path = "[PATH]" },
+              }),
+            },
+          })
+        end,
+      },
+      {
         "numToStr/Comment.nvim",
         config = function()
           require("Comment").setup({
