@@ -21,6 +21,7 @@
     "custom/power_btn",
   ],
   "modules-right": [
+    "custom/hyprsunset",
     "backlight",
     "pulseaudio",
     "pulseaudio#microphone",
@@ -144,6 +145,24 @@
     "tooltip": true,
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "interval": 1,
+  },
+  // "custom/hyprsunset": {
+  //   "format": "hello",
+  //   "exec": "systemctl --user enable --now hyprsunset.service",
+  //   "on-scroll-up": "hyprctl hyprsunset gamma +10",
+  //   "on-scroll-down": "hyprctl hyprsunset gamma -10",
+  //   "on-click": "hyprctl hyprsunset identity",
+  //   "on-click-right": "hyprctl hyprsunset gamma 50",
+  //   "format-icons": ["🕶️", "👓"],
+  //   "interval": 10,
+  // },
+  "custom/hyprsunset": {
+    "format": "🕶",
+    // "on-scroll-up": "hyprctl hyprsunset gamma +10",
+    // "on-scroll-down": "hyprctl hyprsunset gamma -10",
+    "on-click": "~/.local/scripts/hyprsunset_toggle.sh",
+    "tooltip": false,
+    "interval": 3600,
   },
   "backlight": {
     "device": "intel_backlight",
