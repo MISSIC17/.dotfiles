@@ -121,4 +121,3 @@ for i, day in enumerate(weather["weather"]):
         )
 
 
-print(json.dumps(data))
