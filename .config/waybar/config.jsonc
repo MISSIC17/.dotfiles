@@ -5,7 +5,7 @@
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,
-  //"height": 50,
+  "height": 50,
   "modules-left": [
     "custom/launch_wofi",
     "hyprland/workspaces",
