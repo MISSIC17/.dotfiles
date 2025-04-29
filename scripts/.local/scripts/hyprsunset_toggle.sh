@@ -8,11 +8,11 @@ fi
 
 STATE=$(cat "$STATE_FILE")
 if [ "$STATE" = "off" ]; then
-  hyprctl hyprsunset gamma 90
-  hyprctl hyprsunset temperature 4500
+  hyprctl hyprsunset gamma 80
+  hyprctl hyprsunset temperature 4000
   echo "on" >"$STATE_FILE"
 else
   hyprctl hyprsunset gamma 100
-  hyprctl hyprsunset temperature 4000
+  hyprctl hyprsunset temperature 5000
   echo "off" >"$STATE_FILE"
 fi
