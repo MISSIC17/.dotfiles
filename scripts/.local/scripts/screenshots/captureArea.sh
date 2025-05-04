@@ -1,3 +1,7 @@
 #!/bin/bash
 
-grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +'%s_grim.png') && wl-copy <$HOME/Pictures/Screenshots/$(date +'%s_grim.png')
+filename="$HOME/Pictures/Screenshots/$(date +'%s_grim.png')"
+
+grim -g "$(slurp)" "$filename" &&
+  wl-copy <"$filename" &&
+  notify-send -i $filename "Screenshot taken" "Saved to $filename"
