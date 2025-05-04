@@ -170,3 +170,7 @@ window#waybar.battery-critical:not(.charging) {
   background: #1e1e2e;
   color: #e92d4d;
 }
+
+#custom-notification {
+  font-family: "NotoSansMono Nerd Font";
+}
