@@ -18,27 +18,26 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- { import = "lazyvim.plugins.extras.ui.alpha" },
     { import = "lazyvim.plugins.extras.lang.tailwind" },
-    { import = "lazyvim.plugins.extras.coding.copilot" },
+    --{ import = "lazyvim.plugins.extras.coding.copilot" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     { import = "lazyvim.plugins.extras.lang.svelte" },
     { import = "lazyvim.plugins.extras.editor.dial" },
-    { import = "lazyvim.plugins.extras.coding.copilot" },
     { import = "plugins" },
     {
 
       "JoosepAlviste/nvim-ts-context-commentstring",
-      {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        config = function()
-          require("nvim-treesitter.configs").setup({
-            ensure_installed = { "vim", "lua" },
-            highlight = {
-              enable = true,
-            },
-          })
-        end,
-      },
+      -- {
+      --   "nvim-treesitter/nvim-treesitter",
+      --   build = ":TSUpdate",
+      --   config = function()
+      --     require("nvim-treesitter.configs").setup({
+      --       ensure_installed = { "vim", "lua" },
+      --       highlight = {
+      --         enable = true,
+      --       },
+      --     })
+      --   end,
+      -- },
       {
         "hrsh7th/nvim-cmp",
         dependencies = { "hrsh7th/cmp-nvim-lsp", "onsails/lspkind.nvim" },

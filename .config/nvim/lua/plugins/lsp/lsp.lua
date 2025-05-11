@@ -1,131 +1,82 @@
 return {
-  -- tools
-  -- {
-  --   "williamboman/mason.nvim",
-  --   opts = function(_, opts)
-  --     vim.list_extend(opts.ensure_installed, {
-  --       "luacheck",
-  --       "shellcheck",
-  --       "shfmt",
-  --       "tailwindcss-language-server",
-  --       "typescript-language-server",
-  --       "css-lsp",
-  --       "flake8",
-  --     })
-  --   end,
-  -- },
+  -- Mason setup
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "stylua",
+        "shfmt",
+        "black",
+        "debugpy",
+        "phpactor",
+      },
+      -- Use the default installation directory
+      install_root_dir = vim.fn.stdpath("data") .. "/mason",
+    },
+    config = function(_, opts)
+      require("mason").setup(opts)
 
-  -- lsp servers
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   opts = {
-  --     inlay_hints = { enabled = true },
-  --     ---@type lspconfig.options
-  --     servers = {
-  --       cssls = {},
-  --       tailwindcss = {
-  --         root_dir = function(...)
-  --           return require("lspconfig.util").root_pattern(".git")(...)
-  --         end,
-  --       },
-  --       tsserver = {
-  --         root_dir = function(...)
-  --           return require("lspconfig.util").root_pattern(".git")(...)
-  --         end,
-  --         single_file_support = false,
-  --         settings = {
-  --           typescript = {
-  --             inlayHints = {
-  --               includeInlayParameterNameHints = "literal",
-  --               includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-  --               includeInlayFunctionParameterTypeHints = true,
-  --               includeInlayVariableTypeHints = false,
-  --               includeInlayPropertyDeclarationTypeHints = true,
-  --               includeInlayFunctionLikeReturnTypeHints = true,
-  --               includeInlayEnumMemberValueHints = true,
-  --             },
-  --           },
-  --           javascript = {
-  --             inlayHints = {
-  --               includeInlayParameterNameHints = "all",
-  --               includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-  --               includeInlayFunctionParameterTypeHints = true,
-  --               includeInlayVariableTypeHints = true,
-  --               includeInlayPropertyDeclarationTypeHints = true,
-  --               includeInlayFunctionLikeReturnTypeHints = true,
-  --               includeInlayEnumMemberValueHints = true,
-  --             },
-  --           },
-  --         },
-  --       },
-  --       html = {},
-  --       lua_ls = {
-  --         -- enabled = false,
-  --         single_file_support = true,
-  --         settings = {
-  --           Lua = {
-  --             workspace = {
-  --               checkThirdParty = false,
-  --             },
-  --             completion = {
-  --               workspaceWord = true,
-  --               callSnippet = "Both",
-  --             },
-  --             misc = {
-  --               parameters = {
-  --                 -- "--log-level=trace",
-  --               },
-  --             },
-  --             hint = {
-  --               enable = true,
-  --               setType = false,
-  --               paramType = true,
-  --               paramName = "Disable",
-  --               semicolon = "Disable",
-  --               arrayIndex = "Disable",
-  --             },
-  --             doc = {
-  --               privateName = { "^_" },
-  --             },
-  --             type = {
-  --               castNumberToInteger = true,
-  --             },
-  --             diagnostics = {
-  --               disable = { "incomplete-signature-doc", "trailing-space" },
-  --               -- enable = false,
-  --               groupSeverity = {
-  --                 strong = "Warning",
-  --                 strict = "Warning",
-  --               },
-  --               groupFileStatus = {
-  --                 ["ambiguity"] = "Opened",
-  --                 ["await"] = "Opened",
-  --                 ["codestyle"] = "None",
-  --                 ["duplicate"] = "Opened",
-  --                 ["global"] = "Opened",
-  --                 ["luadoc"] = "Opened",
-  --                 ["redefined"] = "Opened",
-  --                 ["strict"] = "Opened",
-  --                 ["strong"] = "Opened",
-  --                 ["type-check"] = "Opened",
-  --                 ["unbalanced"] = "Opened",
-  --                 ["unused"] = "Opened",
-  --               },
-  --               unusedLocalExclude = { "_*" },
-  --             },
-  --             format = {
-  --               enable = false,
-  --               defaultConfig = {
-  --                 indent_style = "space",
-  --                 indent_size = "2",
-  --                 continuation_indent_size = "2",
-  --               },
-  --             },
-  --           },
-  --         },
-  --       },
-  --     },
-  --     setup = {},
-  --   },
-  -- },
+      -- Ensure debugpy is installed
+      local mr = require("mason-registry")
+      if not mr.is_installed("debugpy") then
+        vim.cmd("MasonInstall debugpy")
+      end
+    end,
+  },
+
+  -- Mason LSP config setup
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = {
+        "lua_ls",
+        "tsserver",
+        "pyright",
+        "phpactor",
+      },
+      automatic_installation = true,
+    },
+  },
+
+  -- Configure LSP servers
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        lua_ls = {
+          settings = {
+            Lua = {
+              diagnostics = {
+                globals = { "vim" },
+              },
+              workspace = {
+                library = {
+                  [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                  [vim.fn.stdpath("config") .. "/lua"] = true,
+                },
+              },
+            },
+          },
+        },
+        pyright = {
+          settings = {
+            python = {
+              analysis = {
+                typeCheckingMode = "basic",
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+              },
+            },
+          },
+        },
+        phpactor = {
+          -- PHP language server
+          init_options = {
+            ["language_server_phpstan.enabled"] = true,
+            ["language_server_psalm.enabled"] = true,
+          },
+        },
+      },
+    },
+  },
 }

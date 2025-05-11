@@ -203,7 +203,17 @@ return {
   {
     "luckasRanarison/tailwind-tools.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    opts = {}, -- your configuration
+
+    ft = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "svelte" },
+    opts = {
+      document_color = true,
+      conceal = false,
+      custom_filetypes = {},
+      highlight_classes = {
+        enabled = true,
+        background = true,
+      },
+    },
   },
 
   -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
@@ -382,5 +392,125 @@ return {
       -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
       { "<leader>vc", "<cmd>VenvSelectCached<cr>" },
     },
+  },
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text",
+      "mfussenegger/nvim-dap-python",
+      "nvim-neotest/nvim-nio",
+    },
+    keys = {
+      { "<leader>db", "<cmd>DapToggleBreakpoint<cr>", desc = "Toggle Breakpoint" },
+      { "<leader>dc", "<cmd>DapContinue<cr>", desc = "Continue" },
+      { "<leader>di", "<cmd>DapStepInto<cr>", desc = "Step Into" },
+      { "<leader>do", "<cmd>DapStepOver<cr>", desc = "Step Over" },
+      { "<leader>dO", "<cmd>DapStepOut<cr>", desc = "Step Out" },
+      { "<leader>dr", "<cmd>DapToggleRepl<cr>", desc = "Toggle Repl" },
+      { "<leader>dl", "<cmd>DapShowLog<cr>", desc = "Show Log" },
+      { "<leader>du", "<cmd>lua require('dapui').toggle()<cr>", desc = "Toggle UI" },
+    },
+    config = function()
+      -- Basic DAP setup
+      local dap = require("dap")
+
+      -- Configure DAP adapters here
+      -- Example Python configuration
+      dap.adapters.python = {
+        type = "executable",
+        command = vim.fn.exepath("python3"),
+        args = { "-m", "debugpy.adapter" },
+      }
+
+      -- DAP configurations
+      dap.configurations.python = {
+        {
+          type = "python",
+          request = "launch",
+          name = "Launch file",
+          program = "${file}",
+          pythonPath = function()
+            -- Try to detect python path
+            local cwd = vim.fn.getcwd()
+            local venv = os.getenv("VIRTUAL_ENV")
+
+            if venv then
+              return venv .. "/bin/python"
+            elseif vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
+              return cwd .. "/venv/bin/python"
+            elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
+              return cwd .. "/.venv/bin/python"
+            else
+              return "python3"
+            end
+          end,
+        },
+      }
+
+      -- Setup DAP UI
+      local dapui = require("dapui")
+      dapui.setup()
+
+      -- Setup DAP events to open and close the windows automatically
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
+
+      -- Setup virtual text
+      require("nvim-dap-virtual-text").setup()
+
+      -- Setup Python DAP
+      if pcall(require, "dap-python") then
+        local dap_python = require("dap-python")
+        local mason_registry = require("mason-registry")
+
+        -- Try to use mason's debugpy if available
+        local debugpy_path = nil
+
+        if mason_registry.is_installed("debugpy") then
+          local debugpy_package = mason_registry.get_package("debugpy")
+          debugpy_path = debugpy_package:get_install_path() .. "/venv/bin/python"
+        end
+
+        -- Only setup dap-python if we have a valid debugpy path
+        if debugpy_path and vim.fn.filereadable(debugpy_path) == 1 then
+          dap_python.setup(debugpy_path)
+        else
+          -- Fallback to regular python3
+          dap_python.setup("python3")
+        end
+      end
+    end,
+  },
+
+  -- DAP UI
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+    lazy = true,
+    config = true,
+  },
+
+  -- DAP virtual text
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    dependencies = { "mfussenegger/nvim-dap" },
+    lazy = true,
+    config = true,
+  },
+
+  -- Python DAP
+  {
+    "mfussenegger/nvim-dap-python",
+    dependencies = { "mfussenegger/nvim-dap" },
+    ft = "python",
+    lazy = true,
   },
 }
