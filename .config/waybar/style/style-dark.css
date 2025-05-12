@@ -115,7 +115,6 @@ tooltip label {
   border-radius: 500px;
   background: #1769aa;
   color: #fff;
-  letter-spacing: -0.5px;
 }
 
 #temperature.critical {
