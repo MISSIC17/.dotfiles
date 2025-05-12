@@ -39,6 +39,7 @@
       "(.*) - Visual Studio Code": "󰨞  $1",
       "(.*) - Mozilla Firefox": "  $1",
       "(.*) - Thorium": "  $1",
+      "Rakuten Viber": "   Viber",
       "foot": "", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
     },
   },
