@@ -1,19 +1,16 @@
 * {
   border: none;
   border-radius: 0px;
-  font-family: "JetBrainsMono Nerd Font";
-
-  /*font-family: "Montserrat", sans-serif;*/
-  font-weight: 500;
-  font-style: normal;
-  /* font-weight: medium; */
-  font-size: 14px;
   min-height: 0;
 }
 
 window#waybar {
   background: rgba(21, 18, 27, 0.87);
   color: #cdd6f4;
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: 500;
+  font-style: normal;
+  font-size: 13px;
 }
 
 tooltip {
@@ -27,6 +24,11 @@ tooltip {
 
 tooltip label {
   color: #cdd6f4;
+}
+
+#workspaces {
+  padding-right: 0px;
+  padding-left: 5px;
 }
 
 #workspaces button {
@@ -63,7 +65,6 @@ tooltip label {
 #custom-power_btn,
 #custom-power_profile,
 #custom-weather,
-#window,
 #cpu,
 #disk,
 #custom-updates,
@@ -103,27 +104,28 @@ tooltip label {
   margin-right: 10px;
 }
 
-#temperature.critical {
-  color: #e92d4d;
+.module#window {
+  font-family: "Onest", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 0px 10px;
+  font-size: 12px;
+  border-radius: 500px;
+  background: #1769aa;
+  color: #fff;
+  letter-spacing: -0.5px;
 }
 
-#workspaces {
-  padding-right: 0px;
-  padding-left: 5px;
+#temperature.critical {
+  color: #e92d4d;
 }
 
 #custom-power_profile {
   color: #a6e3a1;
   border-left: 0px;
   border-right: 0px;
-}
-
-#window {
-  border-radius: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
-  font-size: 10px;
-  font-style: italic;
 }
 
 #custom-launch_wofi {

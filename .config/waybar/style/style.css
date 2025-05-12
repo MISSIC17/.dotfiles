@@ -114,12 +114,6 @@ tooltip label {
   border-right: 0px;
 }
 
-#window {
-  border-radius: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
 #custom-launch_wofi {
   color: #407cdd;
   margin-left: 10px;
@@ -167,4 +161,18 @@ window#waybar.battery-critical {
 window#waybar.code {
   background-color: #5262bc;
   color: #e92d4d;
+}
+
+.module#window {
+  font-family: "Onest", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 8px;
+  font-style: italic;
+  border-radius: 500px;
+  background: #1769aa;
+  color: #fff;
+  letter-spacing: -0.5px;
 }
