@@ -11,6 +11,9 @@ window#waybar {
   font-weight: 500;
   font-style: normal;
   font-size: 13px;
+  border: 1px solid #f274f9;
+  border-radius: 10px;
+  background-color: #2b0636;
 }
 
 tooltip {
@@ -115,6 +118,7 @@ tooltip label {
   border-radius: 500px;
   background: #1769aa;
   color: #fff;
+  margin: 5px;
 }
 
 #temperature.critical {
