@@ -162,6 +162,9 @@ return {
     enabled = false,
     config = function()
       require("nvim-tree").setup({
+        trash = {
+          cmd = "gio trash",
+        },
         on_attach = function(bufnr)
           local api = require("nvim-tree.api")
 
