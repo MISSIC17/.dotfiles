@@ -1,6 +1,7 @@
 {
   "layer": "top",
   "position": "top",
+  "margin-bottom": 3,
   "mod": "dock",
   "exclusive": true,
   "passthrough": false,
