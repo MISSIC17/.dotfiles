@@ -114,8 +114,9 @@ tooltip label {
   color: white;
   margin-left: 0px;
   border-right: 0px;
-  font-size: 16px;
+  font-size: 12px;
   border-radius: 500px;
+  margin: 5px 0px;
   padding: 0px 15px 0px 10px;
 }
 
