@@ -5,16 +5,17 @@
 }
 
 window#waybar {
-  background: rgba(21, 18, 27, 0.87);
+  /* background: rgba(21, 18, 27, 0.87); */
   color: #cdd6f4;
   font-family: "JetBrainsMono Nerd Font";
   font-weight: 500;
   font-style: normal;
   font-size: 13px;
-  border: 1px solid #f274f9;
-  border-radius: 10px;
-  background-color: #2b0636;
+  /* border: 1px solid #f274f9; */
+  /* border-radius: 10px; */
+  /* background-color: #2b0636; */
   margin-bottom: 10px;
+  background: transparent;
 }
 
 tooltip {
@@ -35,11 +36,12 @@ tooltip label {
   padding-left: 5px;
   background-color: #3b15ab;
   border-radius: 500px;
+  margin-left: 10px;
 }
 
 #workspaces button {
   padding: 5px;
-  color: #a6adc8;
+  color: rgba(255, 255, 255, 0.8);
   margin-right: 5px;
 }
 
@@ -60,8 +62,7 @@ tooltip label {
 }
 
 #workspaces button:hover {
-  background: #9480d1;
-  color: #3b3353;
+  color: white;
   border: none;
 }
 
@@ -108,6 +109,11 @@ tooltip label {
 #disk {
   border-radius: 0px 10px 10px 0px;
   margin-right: 10px;
+}
+
+#custom-launch_wofi {
+  border-radius: 500px;
+  background: blue;
 }
 
 .module#window {
