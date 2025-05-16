@@ -66,7 +66,6 @@ tooltip label {
   border: none;
 }
 
-#custom-launch_wofi,
 #custom-lock_screen,
 #custom-light_dark,
 #custom-power_btn,
@@ -96,7 +95,6 @@ tooltip label {
 #custom-lock_screen,
 #temperature,
 #backlight,
-#custom-launch_wofi,
 #cpu {
   border-radius: 10px 0px 0px 10px;
 }
@@ -112,8 +110,13 @@ tooltip label {
 }
 
 #custom-launch_wofi {
+  background-color: #1891ce;
+  color: white;
+  margin-left: 0px;
+  border-right: 0px;
+  font-size: 16px;
   border-radius: 500px;
-  background: blue;
+  padding: 0px 15px 0px 10px;
 }
 
 .module#window {
@@ -137,12 +140,6 @@ tooltip label {
 #custom-power_profile {
   color: #a6e3a1;
   border-left: 0px;
-  border-right: 0px;
-}
-
-#custom-launch_wofi {
-  color: #89b4fa;
-  margin-left: 10px;
   border-right: 0px;
 }
 
