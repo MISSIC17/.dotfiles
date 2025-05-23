@@ -2,8 +2,10 @@
 
 ## Reload zsh
 
-` omz reload`
+`omz reload`
 
 ## To load the dotfiles to local directory
 
-` stow -t ~/.config -d ~/.dotfiles .config`
+`stow -t ~/.config -d ~/.dotfiles .config`
+
+## YAZI unhide files keybind: "."
