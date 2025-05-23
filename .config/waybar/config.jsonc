@@ -8,12 +8,11 @@
   "gtk-layer-shell": true,
   "height": 30,
   "modules-left": [
-    "custom/launch_wofi",
+    //"custom/launch_wofi",
     "hyprland/workspaces",
     "cpu",
     "memory",
     "disk",
-    "hyprland/window",
   ],
   "modules-center": ["clock", "custom/lock_screen", "custom/power_btn"],
   "modules-right": [
@@ -42,17 +41,12 @@
     "separate-outputs": true,
   },
   "hyprland/workspaces": {
-    "format": "{name}: {icon}",
-    "format-icons": {
-      "१": "",
-      "२": "",
-      "३": "",
-      "४": "",
-      "५": "",
-      "active": "",
-      "default": "",
-      "empty": "∅",
-    },
+    "format": "{name}",
+    // "format-icons": {
+    //   "active": "",
+    //   "default": "",
+    //   "empty": "∅",
+    // },
     // "format": "<sub>{icon}</sub>\n{windows}",
     // "format-window-separator": "\t",
     // "window-rewrite-default": "",
@@ -239,7 +233,7 @@
   },
   "battery": {
     "states": {
-      "good": 95,
+      "good": 90,
       "warning": 30,
       "critical": 20,
     },

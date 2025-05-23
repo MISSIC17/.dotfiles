@@ -32,21 +32,21 @@ tooltip label {
 }
 
 #workspaces {
-  padding-right: 0px;
-  padding-left: 5px;
-  background-color: #3b15ab;
-  border-radius: 500px;
-  margin-left: 10px;
+  /* padding-right: 0px; */
+  /* padding-left: 5px; */
+  /* background-color: #3b15ab; */
+  /* margin-left: 10px; */
 }
 
 #workspaces button {
   padding: 5px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.5);
   margin-right: 5px;
 }
 
 #workspaces button.active {
   color: #fff;
+  background-color: #914595;
 }
 
 #workspaces button.focused {
@@ -81,7 +81,6 @@ tooltip label {
 #network,
 #tray,
 #temperature,
-#workspaces,
 #backlight {
   background: #1e1e2e;
   opacity: 0.8;
@@ -101,7 +100,6 @@ tooltip label {
 
 #custom-light_dark,
 #custom-power_btn,
-#workspaces,
 #pulseaudio.microphone,
 #battery,
 #disk {
