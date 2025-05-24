@@ -191,3 +191,4 @@ unset __conda_setup
 
 export PATH="$HOME/anaconda3/bin:$PATH"
 export PATH=/usr/bin:$PATH
+export PATH="/home/missic/VSCode-linux-x64/bin:$PATH"

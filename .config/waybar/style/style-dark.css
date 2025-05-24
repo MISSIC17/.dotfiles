@@ -68,12 +68,14 @@ tooltip label {
 
 #custom-lock_screen,
 #custom-light_dark,
+#custom-updates,
 #custom-power_btn,
 #custom-power_profile,
 #custom-weather,
+#custom-notification,
+#custom-hyprsunset,
 #cpu,
 #disk,
-#custom-updates,
 #memory,
 #clock,
 #battery,
@@ -91,9 +93,9 @@ tooltip label {
 }
 
 #tray,
-#custom-lock_screen,
 #temperature,
-#backlight,
+#custom-updates,
+#clock,
 #cpu {
   border-radius: 10px 0px 0px 10px;
 }
