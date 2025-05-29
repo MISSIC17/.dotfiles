@@ -13,10 +13,10 @@
     "cpu",
     "memory",
     "disk",
+    "custom/updates",
   ],
   "modules-center": ["clock", "custom/lock_screen", "custom/power_btn"],
   "modules-right": [
-    "custom/updates",
     "custom/hyprsunset",
     "backlight",
     "pulseaudio",
@@ -24,7 +24,7 @@
     "tray",
     "custom/weather",
     "custom/notification",
-    "custom/light_dark",
+    // "custom/light_dark",
     "temperature",
     "custom/power_profile",
     "battery",
@@ -139,9 +139,10 @@
   "custom/weather": {
     //shows the current weather and forecast
     "tooltip": true,
-    "format": "{}",
-    "interval": 30,
-    "exec": "~/.config/waybar/scripts/waybar-wttr.py",
+    "format": "{}°",
+    "interval": 3600,
+    //"exec": "~/.config/waybar/scripts/waybar-wttr.py",
+    "exec": "wttrbar --location 27.714850657247908,85.358468646013",
     "return-type": "json",
   },
   "tray": {
