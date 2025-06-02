@@ -1,3 +1,4 @@
+@import ".cache/wal/colors-waybar.css";
 * {
   transition: 0.2s;
 }
@@ -5,7 +6,8 @@
 window {
   font-family: "Onest", sans-serif;
   margin: 0px;
-  border: 5px solid #1e1e2e;
+  /* border: 5px solid #1e1e2e; */
+  border: 5px solid @foreground;
   background-color: transparent;
   border-radius: 15px;
 }
@@ -15,33 +17,41 @@ window {
   margin: 4px;
   padding-left: 20px;
   border: none;
-  color: #fff;
+  /* color: #fff; */
+  color: @foreground;
   font-weight: bold;
-  background-color: #74259a;
+  /* background-color: #74259a; */
+  background-color: @background;
   outline: none;
   border-radius: 9.3px;
   margin: 10px;
   margin-bottom: 2px;
+  border: 1px solid @cursor;
 }
 #input:focus {
-  border: 1px solid #f274f9;
+  /* border: 1px solid #f274f9; */
+  border: 1px solid @color2;
   margin-bottom: 0px;
 }
 
 #inner-box {
   margin: 4px;
   padding: 8px;
-  color: #cdd6f4;
+  /* color: #cdd6f4; */
+  color: @foreground;
   font-weight: bold;
-  background-color: #30073c;
+  /* background-color: #30073c; */
+  background-color: @background;
   border-radius: 9.3px;
 }
 
 #outer-box {
   margin: 0px;
   border-radius: 15px;
-  background-color: #050004;
-  border: 1px solid #f274f9;
+  /* background-color: #050004; */
+  background-color: @background;
+  /* border: 1px solid #f274f9; */
+  border: 1px solid @color3;
 }
 
 #scroll {
@@ -53,16 +63,19 @@ window {
 }
 
 #img:selected {
-  background-color: #8615ab;
+  /* background-color: #8615ab; */
+  background-color: @color1;
   border-radius: 15px;
 }
 
 #text:selected {
-  color: #cdd6f4;
+  /* color: #cdd6f4; */
+  color: @foreground;
   margin: 0px 0px;
   border: none;
   border-radius: 15px;
-  background-color: #8615ab;
+  /* background-color: #8615ab; */
+  background-color: @color1;
 }
 
 #entry {
@@ -76,5 +89,7 @@ window {
   margin: 0px 0px;
   border: none;
   border-radius: 8px;
-  background-color: #8615ab;
+  color: @foreground;
+  /* background-color: #8615ab; */
+  background-color: @color1;
 }
