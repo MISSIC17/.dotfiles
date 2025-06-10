@@ -94,3 +94,13 @@ require("lazy").setup({
     },
   },
 })
+
+require("lspconfig").tailwindcss.setup({
+  settings = {
+    tailwindCSS = {
+      files = {
+        exclude = { "**/.next/**/*" },
+      },
+    },
+  },
+})

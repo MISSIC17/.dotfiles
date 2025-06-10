@@ -94,6 +94,8 @@ return {
       local telescope = require("telescope")
       local actions = require("telescope.actions")
       local fb_actions = require("telescope").extensions.file_browser.actions
+      opts = opts or {}
+      opts.defaults = opts.defaults or {}
 
       opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
         wrap_results = true,
@@ -206,8 +208,17 @@ return {
 
     ft = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "svelte" },
     opts = {
-      document_color = true,
-      conceal = false,
+      document_color = {
+        enabled = true,
+        kind = "background",
+      },
+      conceal = {
+        enabled = false,
+        symbols = {
+          px = "px",
+          rem = "rem",
+        },
+      },
       custom_filetypes = {},
       highlight_classes = {
         enabled = true,

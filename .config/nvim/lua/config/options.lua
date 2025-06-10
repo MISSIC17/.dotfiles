@@ -1,6 +1,6 @@
 vim.opt.winbar = "%=%m %f"
 vim.g.mapleader = " "
-
+vim.g.python3_host_prog = "/usr/bin/python3"
 vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
