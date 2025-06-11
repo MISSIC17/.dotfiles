@@ -202,30 +202,32 @@ return {
   },
 
   -- tailwind-tools.lua
-  {
-    "luckasRanarison/tailwind-tools.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
+  -- {
+  --   "luckasRanarison/tailwind-tools.nvim",
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --
+  --   ft = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "svelte" },
+  --   opts = {
+  --     document_color = {
+  --       enabled = true,
+  --       kind = "background",
+  --     },
+  --     conceal = {
+  --       enabled = false,
+  --       symbols = {
+  --         px = "px",
+  --         rem = "rem",
+  --       },
+  --     },
+  --     custom_filetypes = {},
+  --     highlight_classes = {
+  --       enabled = true,
+  --       background = true,
+  --     },
+  --   },
+  -- },
 
-    ft = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "svelte" },
-    opts = {
-      document_color = {
-        enabled = true,
-        kind = "background",
-      },
-      conceal = {
-        enabled = false,
-        symbols = {
-          px = "px",
-          rem = "rem",
-        },
-      },
-      custom_filetypes = {},
-      highlight_classes = {
-        enabled = true,
-        background = true,
-      },
-    },
-  },
+  -- { "roobert/tailwindcss-colorizer-cmp.nvim", opts = {} },
 
   -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
   { import = "lazyvim.plugins.extras.lang.json" },
@@ -286,6 +288,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
+      { "catgoose/tailwindcss-colorizer-cmp.nvim", config = true },
     },
 
     config = function()
@@ -315,6 +318,11 @@ return {
     -- }
     -- ```
     opts = function(_, opts)
+      local format_kinds = opts.formatting.format
+      opts.formatting.format = function(entry, item)
+        format_kinds(entry, item) -- add icons
+        return require("tailwindcss-colorizer-cmp").formatter(entry, item)
+      end
       vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
       local cmp = require("cmp")
       local defaults = require("cmp.config.default")()
@@ -331,7 +339,6 @@ return {
           ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
           -- ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
           --
-          ["<C-p>"] = print("hi"),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<CR>"] = LazyVim.cmp.confirm({ select = auto_select }),
           ["<C-y>"] = LazyVim.cmp.confirm({ select = true }),
@@ -523,5 +530,26 @@ return {
     dependencies = { "mfussenegger/nvim-dap" },
     ft = "python",
     lazy = true,
+  },
+  {
+    "echasnovski/mini.surround",
+    version = "*",
+    opts = {
+      mappings = {
+        delete = "ds",
+        add = "sa",
+        find = "sf",
+        find_left = "sF", -- Find surrounding (to the left)
+        highlight = "sh", -- Highlight surrounding
+        replace = "sr", -- Replace surrounding
+        update_n_lines = "sn", -- Update `n_lines`
+
+        suffix_last = "l", -- Suffix to search with "prev" method
+        suffix_next = "n",
+      },
+      n_lines = 20,
+      search_method = "cover",
+      silent = false,
+    },
   },
 }

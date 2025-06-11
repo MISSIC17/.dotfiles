@@ -104,3 +104,4 @@ require("lspconfig").tailwindcss.setup({
     },
   },
 })
+require("mini.surround").setup()

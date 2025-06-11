@@ -3,6 +3,9 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     enabled = true,
+    options = {
+      theme = "tokyonight",
+    },
   },
   --   for the Notifications UI
   {

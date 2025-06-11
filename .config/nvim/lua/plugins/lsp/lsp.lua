@@ -43,6 +43,21 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        tailwindcss = {
+          filetype = {
+            "html",
+            "css",
+            "scss",
+            "html",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "vue",
+            "svelte",
+          },
+        },
+
         lua_ls = {
           settings = {
             Lua = {
