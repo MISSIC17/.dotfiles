@@ -43,6 +43,20 @@ return {
           bg = "NONE",
           italic = true,
         }
+        -- Unused variables highlighting
+        hl.DiagnosticUnnecessary = {
+          fg = "#546b9a", -- dimmed foreground
+          bg = "NONE",
+          italic = true,
+          underline = false,
+          sp = "#f7768e", -- red underline color
+        }
+        -- Alternative: if you want strikethrough effect
+        hl.DiagnosticDeprecated = {
+          fg = "#565f89",
+          bg = "NONE",
+          strikethrough = true,
+        }
       end,
     },
   },

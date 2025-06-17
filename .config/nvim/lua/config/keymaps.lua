@@ -61,3 +61,8 @@ end, opts)
 keymap.set({ "n", "o", "x" }, "B", function()
   require("spider").motion("b")
 end, { desc = "Delete previous subword using Spider.nvim" })
+
+-- find and replace in current buffer
+keymap.set("n", "<leader>vrn", function()
+  vim.lsp.buf.rename()
+end, { desc = "LSP Rename" })
