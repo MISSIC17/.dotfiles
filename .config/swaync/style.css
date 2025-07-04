@@ -1,18 +1,21 @@
-@define-color cc-bg rgba(82,51,84,0.8);
-@define-color noti-border-color rgba(255, 255, 255, 0.15);
-@define-color noti-bg rgba(198,124,202,1);
-@define-color noti-bg-opaque rgb(48, 48, 48);
-@define-color noti-bg-darker rgb(38, 38, 38);
-@define-color noti-bg-hover rgb(56, 56, 56);
-@define-color noti-bg-hover-opaque rgb(56, 56, 56);
-@define-color noti-bg-focus rgba(68, 68, 68, 0.6);
-@define-color noti-close-bg rgba(255, 255, 255, 0.1);
-@define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
-@define-color text-color rgb(255, 255, 255);
-@define-color text-color-disabled rgb(150, 150, 150);
-@define-color bg-selected rgb(0, 128, 255);
+@define-color cc-bg rgba(30, 20, 40, 0.75);                 // translucent deep plum
+@define-color noti-border-color rgba(255, 255, 255, 0.12);  // subtle white border
+@define-color noti-bg rgba(38, 28, 48, 0.92);               // semi-opaque dark violet
+@define-color noti-bg-opaque rgb(30, 22, 40);               // dark plum
+@define-color noti-bg-darker rgb(24, 18, 30);               // even darker base
+@define-color noti-bg-hover rgb(42, 34, 56);                // hover with subtle lift
+@define-color noti-bg-hover-opaque rgb(42, 34, 56);         // hover opaque
+@define-color noti-bg-focus rgba(66, 56, 88, 0.5);          // soft violet focus
+@define-color noti-close-bg rgba(255, 255, 255, 0.08);      // light close bg
+@define-color noti-close-bg-hover rgba(255, 255, 255, 0.15); // on hover brighter
+@define-color text-color rgb(255, 245, 250);                // soft white-pink
+@define-color text-color-disabled rgb(160, 130, 160);       // muted mauve-gray
+@define-color bg-selected rgb(90, 140, 255); 
+
+
 .notification-row {
   outline: none;
+    min-height: 80px;
 }
 
 .notification-row:focus,
