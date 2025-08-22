@@ -171,6 +171,7 @@ mkcd() {
     mkdir -p "${1}"
     cd "${1}"
 }
+
 eval "$(starship init zsh)"
 export MANPATH=$MANPATH:/usr/local/texlive/2024/texmf-dist/doc/man
 export INFOPATH=$INFOPATH:/usr/local/texlive/2024/texmf-dist/doc/info
@@ -204,3 +205,4 @@ unset __conda_setup
 export PATH="$HOME/anaconda3/bin:$PATH"
 export PATH=/usr/bin:$PATH
 export PATH="/home/missic/VSCode-linux-x64/bin:$PATH"
+export PATH="$PATH:$HOME/.dotnet/tools"
