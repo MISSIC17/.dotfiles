@@ -22,7 +22,7 @@ compinit
 # End of lines added by compinstall
 
 export EDITOR=nvim
-PATH=~/.console-ninja/.bin:$PATH
+
 
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
@@ -181,6 +181,7 @@ export DENO_INSTALL="/home/missic/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 # Created by `pipx` on 2024-07-27 12:24:29
 export PATH="$PATH:/home/missic/.local/bin"
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -206,3 +207,13 @@ export PATH="$HOME/anaconda3/bin:$PATH"
 export PATH=/usr/bin:$PATH
 export PATH="/home/missic/VSCode-linux-x64/bin:$PATH"
 export PATH="$PATH:$HOME/.dotnet/tools"
+
+# pnpm
+export PNPM_HOME="/home/missic/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+PATH=~/.console-ninja/.bin:$PATH

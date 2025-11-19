@@ -15,7 +15,11 @@
     "disk",
     "custom/updates",
   ],
-  "modules-center": ["clock", "custom/lock_screen", "custom/power_btn"],
+  "modules-center": [
+    "clock",
+    "custom/lock_screen",
+    "custom/power_btn"
+  ],
   "modules-right": [
     "custom/hyprsunset",
     "backlight",
@@ -192,7 +196,11 @@
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon} {percent}%",
-    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "format-icons": [
+      "󰃞",
+      "󰃟",
+      "󰃠"
+    ],
     "on-scroll-up": "brightnessctl set 1%+",
     "on-scroll-down": "brightnessctl set 1%- --min-value=900",
     "min-length": 6,
@@ -212,7 +220,11 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""],
+      "default": [
+        "",
+        "",
+        ""
+      ],
     },
   },
   "pulseaudio#microphone": {
@@ -242,7 +254,19 @@
     "format-charging": " {capacity}%",
     "format-plugged": " {capacity}%",
     "format-alt": "{time} {icon}",
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
   },
   "custom/notification": {
     "tooltip": false,
