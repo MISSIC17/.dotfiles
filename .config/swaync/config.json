@@ -1,7 +1,7 @@
 {
   "$schema": "/etc/xdg/swaync/configSchema.json",
   "positionX": "right",
-  "positionY": "bottom",
+  "positionY": "top",
   "layer": "overlay",
   "control-center-layer": "top",
   "layer-shell": true,
@@ -50,7 +50,13 @@
       "app-name": "Spotify"
     }
   },
-  "widgets": ["inhibitors", "menubar#title", "title", "dnd", "notifications"],
+  "widgets": [
+    "inhibitors",
+    "menubar#title",
+    "title",
+    "dnd",
+    "notifications"
+  ],
   "widget-config": {
     "inhibitors": {
       "text": "Inhibitors",
