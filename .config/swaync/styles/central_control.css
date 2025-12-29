@@ -1,0 +1,494 @@
+/* Color Definitions - Unified dark theme */
+@define-color theme_fg rgba(248, 248, 252, 0.98);
+@define-color theme_fg_secondary rgba(215, 220, 225, 0.72);
+@define-color theme_bg rgba(20, 25, 25, 0.96);
+@define-color module_bg rgba(30, 35, 40, 0.85);
+@define-color module_hover_bg rgba(40, 45, 50, 0.95);
+@define-color button_bg rgba(130, 135, 145, 0.18);
+@define-color button_hover_bg rgba(150, 155, 165, 0.32);
+@define-color accent_color rgba(10, 132, 255, 0.9);
+@define-color accent_hover rgba(25, 152, 255, 0.95);
+@define-color border_light rgba(255, 255, 255, 0.12);
+@define-color border_medium rgba(255, 255, 255, 0.08);
+@define-color border_dark rgba(0, 0, 0, 0.08);
+@define-color error_color rgba(255, 69, 58, 0.85);
+@define-color slider_trough_bg rgba(50, 55, 65, 0.35);
+@define-color close_button_bg rgba(110, 110, 115, 0.12);
+@define-color close_button_hover rgba(130, 130, 135, 0.25);
+
+* {
+  color: @theme_fg;
+  all: unset;
+  font-size: 14px;
+  font-family: "Inter", "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+/* Avoid transparent background glitch */
+.blank-window {
+  background: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/*                        CONTROL CENTER                            */
+/* ═══════════════════════════════════════════════════════════════ */
+
+.control-center {
+  background-color: @theme_bg;
+  border: 1px solid @border_medium;
+  border-top-color: @border_light;
+  border-bottom-color: @border_dark;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.75);
+  margin: 18px;
+  padding: 28px;
+  min-width: 400px;
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/*                     NOTIFICATION ROWS                            */
+/* ═══════════════════════════════════════════════════════════════ */
+
+.control-center .notification-row {
+  margin-bottom: 12px;
+}
+
+.control-center .notification-row .notification-background {
+  background-color: @module_bg;
+  border: 1px solid @border_medium;
+  border-radius: 18px;
+  padding: 16px;
+  margin: 4px 0px;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.control-center .notification-row:hover .notification-background {
+  background-color: @module_hover_bg;
+  border-color: @border_light;
+}
+
+.control-center .notification-row .notification-background .notification.critical {
+  background: rgba(255, 69, 58, 0.08);
+  border: 1px solid rgba(255, 69, 58, 0.35);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.control-center .notification-row .notification-background .notification .notification-content {
+  margin: 6px;
+  padding: 4px;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * {
+  min-height: 3.2em;
+}
+
+/* Notification text */
+.control-center .notification .summary {
+  font-weight: 600;
+  font-size: 17px;
+  color: @theme_fg;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.control-center .notification .body {
+  font-size: 16px;
+  font-weight: 400;
+  color: @theme_fg_secondary;
+}
+
+.control-center .notification .time {
+  font-size: 15px;
+  font-weight: 500;
+  color: @theme_fg_secondary;
+  margin-left: 12px;
+}
+
+/* Notification image/icon */
+.control-center .notification image {
+  margin-right: 12px;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 8px;
+}
+
+/* Action buttons */
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action {
+  background-color: @button_bg;
+  color: @theme_fg;
+  border-radius: 12px;
+  border: none;
+  margin: 6px 4px;
+  padding: 8px 16px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
+  background-color: @button_hover_bg;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:active {
+  background-color: @button_bg;
+  transition: all 80ms;
+}
+
+/* Close button */
+.control-center .notification-row .notification-background .close-button {
+  background-color: @close_button_bg;
+  border-radius: 50%;
+  min-width: 24px;
+  min-height: 24px;
+  color: @theme_fg_secondary;
+  margin: 4px;
+  padding: 0;
+  transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.control-center .notification-row .notification-background .close-button:hover {
+  background-color: @close_button_hover;
+  color: @theme_fg;
+}
+
+.control-center .notification-row .notification-background .close-button:active {
+  background-color: rgba(130, 130, 135, 0.35);
+  transition: all 80ms;
+}
+
+.control-center .close-button image {
+  color: @theme_fg_secondary;
+}
+
+/* Progress bars */
+progressbar,
+progress,
+trough {
+  border-radius: 6px;
+}
+
+progressbar {
+  background-color: @slider_trough_bg;
+  min-height: 6px;
+}
+
+trough {
+  background-color: @slider_trough_bg;
+  min-height: 6px;
+  border-radius: 6px;
+}
+
+trough highlight {
+  background: @accent_color;
+  border-radius: 6px;
+  transition: all 200ms ease;
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/*                    NOTIFICATION GROUPS                           */
+/* ═══════════════════════════════════════════════════════════════ */
+
+.notification-group {
+  margin: 8px;
+}
+
+.notification-group-headers {
+  font-weight: 600;
+  font-size: 17px;
+  color: @theme_fg;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.notification-group-icon {
+  color: @theme_fg;
+  margin-right: 8px;
+}
+
+.notification-group-collapse-button,
+.notification-group-close-all-button {
+  background: transparent;
+  color: @theme_fg;
+  border-radius: 8px;
+  margin: 4px;
+  padding: 6px 12px;
+  transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.notification-group-collapse-button:hover,
+.notification-group-close-all-button:hover {
+  background-color: @button_hover_bg;
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/*                         WIDGETS                                  */
+/* ═══════════════════════════════════════════════════════════════ */
+
+/* Widget containers */
+.widget-mpris,
+.widget-volume,
+.widget-backlight,
+.widget-buttons-grid {
+  background-color: @module_bg;
+  border: 1px solid @border_medium;
+  border-radius: 18px;
+  padding: 18px;
+  margin-bottom: 14px;
+}
+
+.widget-volume,
+.widget-backlight {
+  padding: 14px 18px;
+}
+
+.widget-buttons-grid {
+  padding: 12px;
+}
+
+/* Widget Title */
+.widget-title {
+  background: transparent;
+  border: none;
+  padding: 4px 6px 12px 6px;
+  margin-bottom: 8px;
+}
+
+.widget-title label {
+  font-size: 17px;
+  font-weight: 500;
+  color: @theme_fg_secondary;
+  margin-left: 4px;
+}
+
+.widget-title button {
+  font-size: 16px;
+  font-weight: 500;
+  color: @theme_fg;
+  background-color: @button_bg;
+  border: none;
+  border-radius: 10px;
+  padding: 7px 16px;
+  transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.widget-title button:hover {
+  background-color: @button_hover_bg;
+}
+
+.widget-title button:active {
+  background-color: @button_bg;
+  transition: all 80ms;
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/*                     DO NOT DISTURB WIDGET                        */
+/* ═══════════════════════════════════════════════════════════════ */
+
+.widget-dnd {
+  margin: 6px;
+  font-size: 17px;
+}
+
+.widget-dnd > switch {
+  background: @slider_trough_bg;
+  font-size: initial;
+  border-radius: 20px;
+  box-shadow: none;
+  padding: 3px;
+  min-width: 52px;
+  min-height: 28px;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.widget-dnd > switch:hover {
+  background: rgba(60, 65, 75, 0.5);
+}
+
+.widget-dnd > switch:checked {
+  background: @accent_color;
+}
+
+.widget-dnd > switch:checked:hover {
+  background: @accent_hover;
+}
+
+.widget-dnd > switch slider {
+  background: white;
+  border-radius: 50%;
+  min-width: 22px;
+  min-height: 22px;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/*                      BUTTONS GRID WIDGET                         */
+/* ═══════════════════════════════════════════════════════════════ */
+
+.widget-buttons-grid {
+  font-size: 20px;
+}
+
+.widget-buttons-grid > flowbox {
+  padding: 0;
+  background: none;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild {
+  padding: 4px;
+  background: none;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background-color: rgba(50, 55, 65, 0.5);
+  border-radius: 50px;
+  padding: 14px;
+  min-width: 28px;
+  min-height: 28px;
+  color: @theme_fg_secondary;
+  transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background-color: rgba(70, 75, 85, 0.6);
+  color: @theme_fg;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+  background-color: @accent_color;
+  color: white;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked:hover {
+  background-color: @accent_hover;
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/*                       MPRIS WIDGET                               */
+/* ═══════════════════════════════════════════════════════════════ */
+
+.widget-mpris {
+  padding: 0;
+  border: none;
+  background: transparent;
+  margin: 20px 6px 14px 6px;
+}
+
+.widget-mpris-player {
+  background-color: rgba(30, 35, 40, 0.8);
+  border: 1px solid @border_medium;
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.widget-mpris-album-art {
+  background: none;
+  min-width: 60px;
+  min-height: 60px;
+  border-radius: 14px;
+  margin-right: 12px;
+}
+
+.widget-mpris-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: @theme_fg;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.widget-mpris-subtitle {
+  font-size: 15px;
+  font-weight: 400;
+  color: @theme_fg_secondary;
+}
+
+.widget-mpris > box > button {
+  color: @theme_fg;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.widget-mpris button {
+  all: unset;
+  background: transparent;
+  border-radius: 50%;
+  padding: 7px;
+  color: @theme_fg_secondary;
+  font-size: 18px;
+  min-width: 34px;
+  min-height: 34px;
+  transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.widget-mpris button:hover {
+  background-color: @button_hover_bg;
+  color: @theme_fg;
+}
+
+.widget-mpris button:disabled {
+  color: rgba(215, 220, 225, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/*                 VOLUME & BACKLIGHT WIDGETS                       */
+/* ═══════════════════════════════════════════════════════════════ */
+
+.widget-volume,
+.widget-backlight {
+  background-color: @module_bg;
+  color: @theme_fg;
+  border: 1px solid @border_medium;
+}
+
+.widget-volume label,
+.widget-backlight label {
+  font-size: 22px;
+  color: @theme_fg;
+  min-width: 24px;
+  margin-right: 14px;
+}
+
+/* Sliders */
+.widget-volume scale,
+.widget-backlight scale {
+  padding: 0 8px;
+  min-height: 40px;
+}
+
+.widget-volume scale trough,
+.widget-backlight scale trough {
+  min-height: 12px;
+  min-width: 120px;
+  border-radius: 6px;
+  background-color: @slider_trough_bg;
+}
+
+.widget-volume scale highlight,
+.widget-backlight scale highlight {
+  border-radius: 6px;
+  background: @accent_color;
+  transition: all 200ms ease;
+}
+
+.widget-volume scale slider,
+.widget-backlight scale slider {
+  min-height: 14px;
+  min-width: 14px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.widget-volume scale slider:hover,
+.widget-backlight scale slider:hover {
+  background: rgba(255, 255, 255, 0.95);
+  min-height: 18px;
+  min-width: 18px;
+}
+
+.widget-volume scale slider:active,
+.widget-backlight scale slider:active {
+  min-height: 20px;
+  min-width: 20px;
+}

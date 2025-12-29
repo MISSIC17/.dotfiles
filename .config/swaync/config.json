@@ -3,32 +3,32 @@
   "positionX": "right",
   "positionY": "top",
   "layer": "overlay",
-  "control-center-layer": "top",
+  "control-center-layer": "overlay",
   "layer-shell": true,
   "layer-shell-cover-screen": true,
-  "cssPriority": "application",
-  "control-center-margin-top": 0,
-  "control-center-margin-bottom": 0,
-  "control-center-margin-right": 0,
+  "cssPriority": "user",
+  "control-center-margin-top": 2,
+  "control-center-margin-bottom": 2,
+  "control-center-margin-right": 1,
   "control-center-margin-left": 0,
   "control-center-exclusive-zone": true,
   "notification-2fa-action": true,
   "notification-inline-replies": false,
-  "notification-icon-size": 64,
-  "notification-body-image-height": 100,
+  "notification-icon-size": 48,
+  "notification-body-image-height": 160,
   "notification-body-image-width": 200,
-  "timeout": 10,
-  "timeout-low": 5,
+  "timeout": 5,
+  "timeout-low": 3,
   "timeout-critical": 0,
-  "fit-to-screen": true,
+  "fit-to-screen": false,
   "relative-timestamps": true,
-  "control-center-width": 500,
-  "control-center-height": 600,
-  "notification-window-width": 500,
+  "control-center-width": 300,
+  "control-center-height": 860,
+  "notification-window-width": 300,
   "keyboard-shortcuts": true,
-  "image-visibility": "when-available",
+  "image-visibility": "always",
   "transition-time": 200,
-  "hide-on-clear": false,
+  "hide-on-clear": true,
   "hide-on-action": true,
   "text-empty": "No Notifications",
   "script-fail-notify": true,
@@ -51,11 +51,13 @@
     }
   },
   "widgets": [
-    "inhibitors",
-    "menubar#title",
+    "mpris",
     "title",
-    "dnd",
-    "notifications"
+    "volume",
+    "notifications",
+    "inhibitors",
+    "buttons-grid",
+    "menubar#title"
   ],
   "widget-config": {
     "inhibitors": {
@@ -66,19 +68,43 @@
     "title": {
       "text": "Notifications",
       "clear-all-button": true,
-      "button-text": "Clear All"
+      "button-text": " 󰎟 "
     },
     "dnd": {
       "text": "Do Not Disturb"
-    },
-    "label": {
-      "max-lines": 5,
-      "text": "Label Text"
     },
     "mpris": {
       "image-size": 96,
       "image-radius": 12,
       "blacklist": []
+    },
+    "volume": {
+      "label": "󰕾",
+      "show-per-app": true
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": " ",
+          "command": "amixer set Master toggle"
+        },
+        {
+          "label": "",
+          "command": "amixer set Capture toggle"
+        },
+        {
+          "label": " ",
+          "command": "nm-connection-editor"
+        },
+        {
+          "label": "󰂯",
+          "command": "blueman-manager"
+        },
+        {
+          "label": "󰏘",
+          "command": "nwg-look"
+        }
+      ]
     },
     "menubar#label": {
       "menu#power-buttons": {
@@ -116,12 +142,50 @@
     "buttons-grid": {
       "actions": [
         {
-          "label": "直",
-          "command": "wofi"
+          "label": "",
+          "command": "kitty nmtui",
+          "tooltip": "Network"
         },
         {
-          "label": "",
-          "command": "~/.config/rofi/rofi-bluetooth"
+          "label": "",
+          "command": "blueman-manager",
+          "tooltip": "Bluetooth"
+        },
+        {
+          "label": "󰂛",
+          "command": "swaync-client -d",
+          "type": "toggle",
+          "tooltip": "DND"
+        },
+        {
+          "label": "󰍜",
+          "command": "gnome-network-displays",
+          "tooltip": "Screens"
+        },
+        {
+          "label": "󰈙",
+          "command": "kitty bash -i -c 'Docs'",
+          "tooltip": "Files"
+        },
+        {
+          "label": "",
+          "command": "kitty bash -i -c 'Settings'",
+          "tooltip": "Settings"
+        },
+        {
+          "label": "",
+          "command": "hyprlock",
+          "tooltip": "Lock"
+        },
+        {
+          "label": "󰜉",
+          "command": "reboot",
+          "tooltip": "Reboot"
+        },
+        {
+          "label": "⏻",
+          "command": "shutdown now",
+          "tooltip": "Power Off"
         }
       ]
     }

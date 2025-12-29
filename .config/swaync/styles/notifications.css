@@ -1,0 +1,221 @@
+/* Color Definitions - Darker macOS inspired */
+@define-color macos-bg rgba(20, 25, 25, 0.96);
+@define-color macos-border rgba(255, 255, 255, 0.12);
+@define-color macos-text rgba(248, 248, 252, 0.98);
+@define-color macos-text-secondary rgba(215, 220, 225, 0.72);
+@define-color macos-button-bg rgba(130, 135, 145, 0.18);
+@define-color macos-button-hover rgba(150, 155, 165, 0.32);
+@define-color macos-accent rgba(10, 132, 255, 0.9);
+@define-color macos-close-bg rgba(110, 110, 115, 0.12);
+@define-color macos-close-hover rgba(130, 130, 135, 0.25);
+
+* {
+  color: @macos-text;
+  all: unset;
+  font-size: 17px;
+  font-family: "Inter", "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+.notification-row {
+  outline: none;
+  margin: 0;
+  padding: 0px;
+}
+
+.floating-notifications.background {
+  background: transparent;
+}
+
+/* Notification container with smooth transitions */
+.floating-notifications.background .notification-row .notification-background {
+  background-color: rgba(20, 25, 25, 0.96);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top-color: rgba(255, 255, 255, 0.16);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+  margin: 8px 14px;
+  padding: 18px;
+  min-width: 360px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: notification-slide-in 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Slide in animation from right */
+@keyframes notification-slide-in {
+  from {
+    opacity: 0;
+    margin-right: -100px;
+  }
+  to {
+    opacity: 1;
+    margin-right: 14px;
+  }
+}
+
+/* Hover effect */
+.floating-notifications.background .notification-row .notification-background:hover {
+  background-color: rgba(25, 30, 32, 0.98);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.85);
+}
+
+.floating-notifications.background .notification-row .notification-background .notification {
+  padding: 0;
+  border-radius: 18px;
+  background: transparent;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification.critical {
+  background: rgba(255, 69, 58, 0.08);
+  border: 1px solid rgba(255, 69, 58, 0.35);
+  border-radius: 18px;
+  padding: 12px;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification .notification-content {
+  margin: 4px 36px 4px 4px;
+  padding: 0;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * {
+  min-height: 3em;
+}
+
+/* Action buttons */
+.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action {
+  border-radius: 12px;
+  background-color: rgba(130, 135, 145, 0.18);
+  margin: 8px 4px 4px 4px;
+  padding: 8px 18px;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  color: @macos-text;
+  min-height: 32px;
+  transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
+  background-color: rgba(150, 155, 165, 0.32);
+}
+
+.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:active {
+  background-color: rgba(130, 135, 145, 0.25);
+  transition: all 80ms;
+}
+
+/* Alternative actions separator */
+.floating-notifications .notification-alt-actions {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* App icon */
+.image {
+  margin: 0px 14px 0px 0px;
+  border-radius: 10px;
+  min-width: 48px;
+  min-height: 48px;
+}
+
+/* Title - macOS style */
+.summary {
+  font-weight: 700;
+  font-size: 17px;
+  color: rgba(248, 248, 252, 0.98);
+  margin-bottom: 4px;
+  letter-spacing: -0.015em;
+}
+
+/* Body text */
+.body {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(248, 248, 252, 0.98);
+  letter-spacing: -0.008em;
+}
+
+/* Time stamp */
+.time {
+  font-size: 15px;
+  color: rgba(215, 220, 225, 0.68);
+  margin-left: 10px;
+}
+
+/* Close button with smooth transitions */
+.floating-notifications.background .notification-row .notification-background .close-button {
+  margin: 4px;
+  padding: 0;
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 50%;
+  background-color: rgba(110, 110, 115, 0.12);
+  border: none;
+  color: rgba(215, 220, 225, 0.72);
+  font-size: 16px;
+  transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-notifications.background .notification-row .notification-background .close-button:hover {
+  background-color: rgba(130, 130, 135, 0.25);
+  color: rgba(248, 248, 252, 0.95);
+}
+
+.floating-notifications.background .notification-row .notification-background .close-button:active {
+  background-color: rgba(130, 130, 135, 0.35);
+  transition: all 80ms;
+}
+
+.floating-notifications .close-button image {
+  color: rgba(215, 220, 225, 0.72);
+}
+
+/* Progress bars */
+.notification.critical progress,
+.notification.low progress,
+.notification.normal progress {
+  background-color: rgba(10, 132, 255, 0.9);
+  border-radius: 6px;
+  min-height: 6px;
+  transition: background-color 200ms ease;
+}
+
+progressbar {
+  min-height: 6px;
+  border-radius: 6px;
+  background-color: rgba(50, 55, 65, 0.35);
+}
+
+progress {
+  border-radius: 6px;
+}
+
+trough {
+  min-height: 6px;
+  border-radius: 6px;
+  background-color: rgba(50, 55, 65, 0.35);
+}
+
+trough highlight {
+  background: rgba(10, 132, 255, 0.9);
+  border-radius: 6px;
+  transition: all 200ms ease;
+}
+
+/* Text buttons */
+.text-button {
+  background-color: rgba(130, 135, 145, 0.18);
+  border-radius: 12px;
+  margin: 4px 6px;
+  padding: 8px 16px;
+  font-weight: 500;
+  font-size: 16px;
+  color: @macos-text;
+  transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-button:hover {
+  background-color: rgba(150, 155, 165, 0.32);
+}
