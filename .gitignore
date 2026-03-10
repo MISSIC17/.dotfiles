@@ -1,2 +1,9 @@
 .config/tmux/plugins/
+__pycache__/
+.vscode/
+# Neovim lazy lock
+.config/nvim/lazy-lock.json
+
+# lazygit state
+.config/lazygit/state.yml
 

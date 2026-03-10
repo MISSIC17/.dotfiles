@@ -216,4 +216,8 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-PATH=~/.console-ninja/.bin:$PATH
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+HISTSIZE=10000
+SAVEHIST=10000
